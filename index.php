@@ -14,7 +14,7 @@ if(isset($_GET['page'])){
 	$page=$_GET['page'];
 	}
  ?>
-<div class="head table">
+<div class="head">
 	<?php include_once("pages/enter.php") ?>
 </div>
 <nav><?php include_once("pages/menu.php") ?></nav>
