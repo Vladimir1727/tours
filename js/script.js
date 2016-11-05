@@ -20,6 +20,9 @@ if (h>10){
 jQuery(document).ready(function ($) {
 
             var jssor_1_SlideoTransitions = [];
+            var $JssorCaptionSlideo$=[];
+            var $JssorArrowNavigator$=[];
+            var $JssorBulletNavigator$=[];
 
  var jssor_1_options = {
               $AutoPlay: true,

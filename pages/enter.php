@@ -4,6 +4,4 @@
 		<input type="password" name="pass"  class="form-control"  placeholder="пароль">
 		<input type="submit" id="press" value="войти" class="btn btn-default btn-sm">
 
-	
-	
 </form>
