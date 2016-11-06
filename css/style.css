@@ -9,6 +9,16 @@
 	float: right;
 }
 
+.head h4, h5{
+	background: #fff;
+	padding: 5px;
+	margin: 0;
+}
+
+.head h4>span{
+	color:#04d;
+}
+
 .head form input{
 	width:200px;
 	margin-top: 2px;

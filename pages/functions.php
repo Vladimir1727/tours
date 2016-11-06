@@ -32,24 +32,34 @@ function login($name,$pass){
 	$name=trim(htmlspecialchars($name));
 	$pass=trim(htmlspecialchars($pass));
 	if ($name=="" || $pass=="") {
-		echo '<h3 style="color:red;">Не все поля заполнены</h3>';
+		logerr('Не все поля заполнены');
 		return false;		
 	}
 	if (strlen($name)<3 || strlen($name)>30 || strlen($pass)<3 || strlen($pass)>30) {
-		echo '<h3 style="color:red;">Слишком короткие логин/пароль</h3>';
-		return false;		
-	}
-	connect();
-	$sel='selece * from users were name="'.$name.'"
-	and path="'.md5($pass).'"';
-	$res=mysql_query($sel);
-	$row=mysql_fetch_array($res,MYSQL_NUM);
-	if($row[1]==$name){
-		session_start();
-		$_SESSION['ruser']=$name;
-		return true;
-	}
-	else{
+		logerr('Слишком короткие логин/пароль');
 		return false;
 	}
+	connect();
+	$sel='select * from users where login="'.$name.'"
+	and pass="'.md5($pass).'"';
+	$res=mysql_query($sel);
+	if($row=mysql_fetch_array($res,MYSQL_NUM)){
+		if($row[1]==$name){
+			$_SESSION['ruser']=$name;
+			return true;
+		}
+		else{
+			logerr('нет такого пользователя');
+			return false;
+		}
+	}
+}
+
+function logerr($err){
+	echo '<form action="index.php';
+	if (isset($_GET['page'])) echo '?page='.$_GET['page'];
+	echo '" class="form-inline" method="post">';
+	echo '<h5 class="text-danger">'.$err.'</h5>';
+	echo '<input type="submit" value="войти заново" name="re" class="btn btn-default btn-sm">';
+	echo '</form>';
 }

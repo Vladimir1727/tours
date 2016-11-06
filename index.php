@@ -1,3 +1,10 @@
+<?php
+session_start();
+include_once ("pages/functions.php"); 
+if(isset($_GET['page'])){
+	$page=$_GET['page'];
+	}
+ ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -8,14 +15,8 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<?php
-include_once ("pages/functions.php"); 
-if(isset($_GET['page'])){
-	$page=$_GET['page'];
-	}
- ?>
 <div class="head">
-	<?php include_once("pages/enter.php") ?>
+<?php include_once("pages/enter.php");?>
 </div>
 <nav><?php include_once("pages/menu.php") ?></nav>
 <section class="content">
