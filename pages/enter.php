@@ -6,8 +6,9 @@ if (isset($_SESSION['ruser'])){//сессия запущена
 	echo '<h4>Вы вошли как <span>'.$_SESSION['ruser'].'</span></h4>';
 	echo '<input type="submit" value="выйти" id="ex" name="ex" class="btn btn-default btn-sm">';
 	echo '</form>';
-	if (isset($_POST['ex'])) {
+	if (isset($_POST['ex'])) {//нажата кнопка выхода
 		unset($_SESSION['ruser']);
+		echo '<script>window.location.reload()</script>';
 	}
 
 
@@ -15,10 +16,8 @@ if (isset($_SESSION['ruser'])){//сессия запущена
 else//сессия не запущена
 {
 	if (isset($_POST['press'])) {//нажата кнопка входа
-		if(!login($_POST['login'],$_POST['pass'])){
-			//if (isset($_POST['re'])) {
-			//	unset($_POST['press']);
-			//}
+		if(login($_POST['login'],$_POST['pass'])){//вход удался
+			echo '<script>window.location.reload()</script>';
 		}
 	}
 	else{
