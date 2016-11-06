@@ -45,4 +45,16 @@ jQuery(document).ready(function ($) {
 var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
 });
 
+$('#adduser').click(function(){
+
+  if ($('#pass1').val()==$('#pass2').val()){
+      return true;
+    }
+    else{
+      console.log('пароли не совпадают');
+      $('form').after("<h4 class='text-danger'>пароли не совпадают</h4>");
+      return false;
+    }
+})
+
 })})(jQuery)

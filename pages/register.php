@@ -24,7 +24,7 @@ else{
 		<label for="email">E-mail</label>
 		<input type="email" id="email" class="form-control" name="email">
 	</div>
-	<input type="submit" class="btn btn-primary" name="adduser">
+	<input type="submit" class="btn btn-primary" name="adduser" id="adduser">
 </form>
 
 <?php
