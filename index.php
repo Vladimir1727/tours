@@ -33,12 +33,11 @@ if(isset($_GET['page'])){
 
 </section>
 
-
-<script src="js/jquery-3.1.0.min.js"></script>
-<script src="js/ajax.js"></script>
-<script src="js/less.min.js"></script>
-<script src="js/script.js"></script>
-<script src="js/bootstrap.min.js">
 <footer>Diamandi production</footer>
+<script src="js/jquery-3.1.0.min.js"></script>
+<script src="js/less.min.js"></script>
+<script src="js/ajax.js"></script>
+<script src="js/script.js"></script>
+
 </body>
 </html>
