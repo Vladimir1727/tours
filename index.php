@@ -12,14 +12,15 @@ if(isset($_GET['page'])){
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Diamandi</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/style.css">
+	 <!-- <link rel="stylesheet" href="css/style.css">  -->
+	<link rel="stylesheet/less" href="css/style.less">
 </head>
 <body>
 <div class="head">
 <?php include_once("pages/enter.php");?>
 </div>
-<nav><?php include_once("pages/menu.php") ?></nav>
 <section class="content">
+<nav><?php include_once("pages/menu.php") ?></nav>
 	<?php 
 	if(isset($_GET['page'])){
 		if($page==1) include_once("pages/tours.php");
@@ -35,7 +36,9 @@ if(isset($_GET['page'])){
 
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/ajax.js"></script>
+<script src="js/less.min.js"></script>
 <script src="js/script.js"></script>
+<script src="js/bootstrap.min.js">
 <footer>Diamandi production</footer>
 </body>
 </html>

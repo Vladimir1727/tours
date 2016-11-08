@@ -51,7 +51,6 @@ $('#adduser').click(function(){
       return true;
     }
     else{
-      console.log('пароли не совпадают');
       $('form').after("<h4 class='text-danger'>пароли не совпадают</h4>");
       return false;
     }
