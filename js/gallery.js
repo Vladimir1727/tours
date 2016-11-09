@@ -83,7 +83,9 @@ function nextStep(){
 	return false;
 }
 
-if(options.scroll=='auto'){//автоматическое прокручивание картинок
+var li_count=document.querySelectorAll('#gallery>li').length;
+console.log(li_count);
+if(options.scroll=='auto' && li_count>1){//автоматическое прокручивание картинок
 	setInterval(function(){nextStep()},2000);
 }
 
