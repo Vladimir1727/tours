@@ -1,13 +1,15 @@
 <?php 
 if (isset($_POST['adduser'])) {
-	if(register($_POST['login'],$_POST['pass1'],$_POST['email'])){
+	$m=$_FILES['avatar']['name'];
+	echo $m;
+	if(register($_POST['login'],$_POST['pass1'],$_POST['email'],$GLOBALS['avatar'])){
 		echo '<h3 style="color:green;">Добавлен</h3>';
 	}
 }
 else{
 ?>
 
-<form action="index.php?page=4" method="post">
+<form action="index.php?page=4" method="post" enctype="multipart/form-data">
 	<div class="form-group">
 		<label for="login">Логин</label>
 		<input type="text" id="login" class="form-control" name="login">
@@ -24,6 +26,7 @@ else{
 		<label for="email">E-mail</label>
 		<input type="email" id="email" class="form-control" name="email">
 	</div>
+	<input type="file" name="avatar" class="form-control">
 	<input type="submit" class="btn btn-primary" name="adduser" id="adduser">
 </form>
 

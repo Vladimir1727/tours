@@ -10,7 +10,10 @@ function connect(){
 	mysql_query("set names 'utf8'");
 }
 
-function register($name,$pass,$email){
+function register($name,$pass,$email,$a){
+	$file=fopen($a,'rb');//открываем файл как бинарный
+	$binary=fread($file,filesize($a));
+	$fclose($file);
 	$name=trim(htmlspecialchars($name));
 	$pass=trim(htmlspecialchars($pass));
 	$email=trim(htmlspecialchars($email));
@@ -22,7 +25,7 @@ function register($name,$pass,$email){
 		echo '<h3 style="color:red;">Слишком короткие логин/пароль</h3>';
 		return false;		
 	}
-	$ins='insert into users (login,pass,email,roleid) values("'.$name.'","'.md5($pass).'","'.$email.'",2)';
+	$ins='insert into users (login,pass,email,roleid,avatar) values("'.$name.'","'.md5($pass).'","'.$email.'",2,"'.$binary.'")';
 	connect();
 	mysql_query($ins);
 	return true;
