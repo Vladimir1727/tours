@@ -20,7 +20,8 @@ var wImg=wrap.find('img').width();
 //var wImg=250;
 //var hImg=150;
 var hImg=wrap.find('img').height();
-var wWrap=options.count*(wImg+27)+15;
+//var wWrap=options.count*(wImg+27)+15;
+var wWrap=360;
 if (options.color!='light'){
 	//темная схема
 	var col1='#000';

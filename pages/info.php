@@ -49,7 +49,10 @@ if(isset($_GET['hotel'])){
 	echo '<a href="#" class="btn btn-primary">Отзывы</a>';
 	echo '</div>';
 	echo '</div><div class="col-md-6"><p class="well">'.$hinfo.'</p></div>';
-	echo '</div></main>';
+	echo '</div>';
+	connect();
+	getcomments($hotel);
+	echo '</main>';
 	
 }
  ?>

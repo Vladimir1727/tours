@@ -62,3 +62,11 @@ function logerr($err){
 	echo '<input type="submit" value="войти заново" name="re" class="btn btn-default btn-sm">';
 	echo '</form>';
 }
+
+function getcomments($hotelid){
+	$res=mysql_query('select * from Comments where hotelid='.$hotelid);
+	while($row=mysql_fetch_array($res,MYSQL_NUM)){
+		echo '<dt><div>'.$row[3].'&nbsp;'.$row[4].'</div></dt>';
+		echo '<dh>'.$row[2].'</dh>';
+	}
+}

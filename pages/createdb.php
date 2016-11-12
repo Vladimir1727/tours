@@ -23,12 +23,21 @@ $ct6='create table users(
 	foreign key(roleid) references roles(id) on delete cascade,
 	avatar mediumblob,phone varchar(32)
 	)default charset="utf8"';
+$ct7='create table comments(
+	id int not null auto_increment primary key,
+	hotelid int,
+	foreign key(hotelid) references hotels(id) on delete cascade,
+	text varchar(512) not null,
+	username varchar(32),
+	datein datetime
+	)default charset="utf8"';
 mysql_query($ct1);
 mysql_query($ct2);
 mysql_query($ct3);
 mysql_query($ct4);
 mysql_query($ct5);
 mysql_query($ct6);
+mysql_query($ct7);
 $err=mysql_errno();
 if ($err){
 	echo 'Error code:'.$err.'<br>';
