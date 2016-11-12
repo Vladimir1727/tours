@@ -2,7 +2,7 @@
 if (isset($_POST['adduser'])) {
 	$m=$_FILES['avatar']['name'];
 	echo $m;
-	if(register($_POST['login'],$_POST['pass1'],$_POST['email'],$GLOBALS['avatar'])){
+	if(register($_POST['login'],$_POST['pass1'],$_POST['email'],$_FILES['avatar']['tmp_name'])){
 		echo '<h3 style="color:green;">Добавлен</h3>';
 	}
 }

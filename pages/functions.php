@@ -13,7 +13,8 @@ function connect(){
 function register($name,$pass,$email,$a){
 	$file=fopen($a,'rb');//открываем файл как бинарный
 	$binary=fread($file,filesize($a));
-	$fclose($file);
+	$binary=addslashes($binary);
+	fclose($file);
 	$name=trim(htmlspecialchars($name));
 	$pass=trim(htmlspecialchars($pass));
 	$email=trim(htmlspecialchars($email));
