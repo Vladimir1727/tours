@@ -74,19 +74,26 @@ function logerr($err){
 }
 
 function getcomments($hotelid){
-	$res=mysql_query('select c.text,c.username,c.datein,u.avatar from comments c,users u
-		where c.username=u.login and c.hotelid='.$hotelid);
+	/*$res=mysql_query('select c.text,c.username,c.datein,u.avatar from comments c,users u
+		where c.username=u.login and c.hotelid='.$hotelid);*/
+	$res=mysql_query('select text,username,datein from comments 
+		where hotelid='.$hotelid);
 	$i=1;
 	while($row=mysql_fetch_array($res,MYSQL_NUM)){
-		$file=fopen("../images/comment_logo".$i.".jpg", "w");
-		fwrite($file,$row[3]);
-		fclose($file);
 		echo '<div class="panel panel-info">';
 		echo '<div class="panel-heading">';
-		echo '<img src="../images/';
-		if (filesize('../images/comment_logo'.$i.'.jpg')>0) echo 'comment_logo'.$i.'.jpg';
-			else echo 'noimage.png';
-		echo '" style="width:20px;">';
+		//загрузка картинки
+		$resi=mysql_query('select avatar from users 
+		where login="'.$row[1].'"');
+		if ($rowi=mysql_fetch_array($resi,MYSQL_NUM)){
+			$img="../images/comment_logo".$i.".jpg";
+			$file=fopen($img, "w");
+			fwrite($file,$rowi[0]);
+			if (filesize($img)<1) $img="../images/noimage.png";
+			fclose($file);
+			mysql_free_result($resi);
+		}
+		echo '<img src="'.$img.'" style="width:20px;">';
 		echo $row[1].'&nbsp;'.$row[2].'</div>';
 		echo '<div class="panel-body">'.$row[0].'</div>';
 		echo '</div>';
