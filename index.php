@@ -21,7 +21,9 @@ if(isset($_GET['page'])){
 </div>
 <section class="content">
 <nav><?php include_once("pages/menu.php") ?></nav>
-	<?php 
+	<main>
+	<?php
+	
 	if(isset($_GET['page'])){
 		if($page==1) include_once("pages/tours.php");
 		if($page==2) include_once("pages/admin.php");
@@ -30,7 +32,7 @@ if(isset($_GET['page'])){
 	}
 
 	?>
-
+	</main>
 </section>
 
 <footer>Diamandi production</footer>

@@ -1,5 +1,6 @@
+<section class="input-group addcomments">
 <form action="index.php?page=3" method="post">
-<select name="hotelid">
+<select name="hotelid" class="form-control">
 <?php
 connect();
 $res=mysql_query('select ho.id,co.country,ci.city, ho.hotel
@@ -12,9 +13,10 @@ while($row=mysql_fetch_array($res,MYSQL_NUM)){
 mysql_free_result($res);
 ?>
 </select>
-<textarea name="text"></textarea>
-<button name="addcom" type="submit">Добавить отзыв</button>
+<textarea name="text" ></textarea>
+<button name="addcom" type="submit" class="form-control btn btn-success">Добавить отзыв</button>
 </form>
+</section>
 <?php
 if(isset($_REQUEST['addcom'])){
 	$hotelid=$_REQUEST['hotelid'];

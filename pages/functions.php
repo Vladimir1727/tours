@@ -49,12 +49,18 @@ function login($name,$pass){
 	$res=mysql_query($sel);
 	if($row=mysql_fetch_array($res,MYSQL_NUM)){
 		$_SESSION['ruser']=$name;
+		$file=fopen("images/user.jpg", "w");
+		fwrite($file,$row[6]);
+		if (filesize('images/user.jpg')>0) $_SESSION['pic']=true; 
+			else $_SESSION['pic']=false;
+		fclose($file);
 		return true;
 	}
 	else{
 		logerr('нет такого пользователя');
 		return false;
 	}
+	mysql_free_result($res);
 	
 }
 
@@ -68,9 +74,23 @@ function logerr($err){
 }
 
 function getcomments($hotelid){
-	$res=mysql_query('select * from Comments where hotelid='.$hotelid);
+	$res=mysql_query('select c.text,c.username,c.datein,u.avatar from comments c,users u
+		where c.username=u.login and c.hotelid='.$hotelid);
+	$i=1;
 	while($row=mysql_fetch_array($res,MYSQL_NUM)){
-		echo '<dt><div>'.$row[3].'&nbsp;'.$row[4].'</div></dt>';
-		echo '<dh>'.$row[2].'</dh>';
+		$file=fopen("../images/comment_logo".$i.".jpg", "w");
+		fwrite($file,$row[3]);
+		fclose($file);
+		echo '<div class="panel panel-info">';
+		echo '<div class="panel-heading">';
+		echo '<img src="../images/';
+		if (filesize('../images/comment_logo'.$i.'.jpg')>0) echo 'comment_logo'.$i.'.jpg';
+			else echo 'noimage.png';
+		echo '" style="width:20px;">';
+		echo $row[1].'&nbsp;'.$row[2].'</div>';
+		echo '<div class="panel-body">'.$row[0].'</div>';
+		echo '</div>';
+		$i++;
 	}
+	mysql_free_result($res);
 }

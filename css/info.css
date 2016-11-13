@@ -15,11 +15,12 @@ footer{
 
 body{
     background: url(../images/back3.jpg);
+    background-repeat: none;
 }
 
 main{
     width:900px;
-    max-height: 600px;
+    min-height: 600px;
     margin: 50px auto;
     background: rgba(255, 255, 255, 0.7);
     border-radius: 10px;

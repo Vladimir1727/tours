@@ -46,7 +46,7 @@ if(isset($_GET['hotel'])){
 	echo '<h2 class="text-center">Цена <span class="label label-info">'.$hcost.' $</span></h2>';
 	echo '<div class="btn-group btn-group-justified">';
 	echo '<a href="#" class="btn btn-success">Заказать</a>';
-	echo '<a href="#" class="btn btn-primary">Отзывы</a>';
+	echo '<a href="#" class="btn btn-primary" id="rew">Отзывы</a>';
 	echo '</div>';
 	echo '</div><div class="col-md-6"><p class="well">'.$hinfo.'</p></div>';
 	echo '</div>';

@@ -1,6 +1,7 @@
 .head{
 	background: url(../images/back.jpg);
 	background-size:  cover;
+	background-repeat: none;
 	height: 150px;
 	
 	h4, h5{
@@ -47,20 +48,34 @@ footer{
 	width:800px;
 	margin: 0 auto;
 	background: rgba(255,255,255,0.8);
-	padding: 10px;
+	padding: 0;
 	border-radius: 10px;
 	min-height: 500px;
 	overflow: hidden;
+	
+	main{
+		padding: 5px;
 
-	.row>div{
-		height:300px;
-		width: 400px;
-		overflow-y: scroll;
-		box-sizing: border-box;
-		padding: 10px;
+		.row>div{
+			height:300px;
+			width: 400px;
+			overflow-y: scroll;
+			box-sizing: border-box;
+			padding: 10px;
 		}
+	}
+	
 }
 
+.addcomments{
+	margin: 10px auto 0 auto;
+}
 
+	textarea{
+		height:200px;
+		width:100%;
+		resize: vertical;
+		overflow-y: scroll;
+	}
 
 }

@@ -3,7 +3,12 @@ if (isset($_SESSION['ruser'])){//сессия запущена
 	echo '<form action="index.php';
 	if (isset($_GET['page'])) echo '?page='.$_GET['page'];
 	echo '" class="form-inline" method="post">';
-	echo '<h4>Вы вошли как <span>'.$_SESSION['ruser'].'</span></h4>';
+	echo '<h4>';
+	echo '<img src="images/';
+	if ($_SESSION['pic']) echo 'user.jpg';
+		else echo 'noimage.png';
+	echo '" style="width:20px;">';
+	echo ' Вы вошли как <span>'.$_SESSION['ruser'].'</span></h4>';
 	echo '<input type="submit" value="выйти" id="ex" name="ex" class="btn btn-default btn-sm">';
 	echo '</form>';
 	if (isset($_POST['ex'])) {//нажата кнопка выхода
